@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-
+import Button from './generic/button/button'
+import DropDown from './generic/dropdown/dropdown'
 function App() {
   return (
-    <div className="dark:bg-gray-500">
-      <div className="min-h-screen flex justify-center items-center">
-        <h1 className="text-gray-900 dark:text-white text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold tracking-tight mb-8">Dark Mode Template</h1>
+    <div className="flex items-center justify-center min-h-screen dark:bg-gray-500 bg-screen">
+      <div className="flex flex-row items-center divide-x rounded-full bg-bg">
+      <span>04:01:00</span> <Button kind='primary' className='py-2 px-14'> Entrar </Button>
+        <DropDown> dsadas</DropDown>
       </div>
     </div>
   )
