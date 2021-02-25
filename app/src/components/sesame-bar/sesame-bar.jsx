@@ -44,7 +44,7 @@ const SesameBar = ({employee}) => {
         data.workEntryOut.coordinates.latitude = pos.lat;
         data.workEntryOut.coordinates.longitude = pos.lng;
       }else{
-        ata.workEntryIn.coordinates.latitude = pos.lat;
+        data.workEntryIn.coordinates.latitude = pos.lat;
         data.workEntryIn.coordinates.longitude = pos.lng;
       }
       axiosInstance.post(`/work-entries/${checkInOut}`, data)
