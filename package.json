@@ -1,23 +1,14 @@
 {
-  "name": "sesame-test",
+  "name": "api-test",
   "version": "0.0.0",
+  "author": "Sergio Beleña",
+  "license": "MIT",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev-back": "cd backend && npm run dev",
+    "dev-front": "cd app && npm run dev"
   },
   "dependencies": {
-    "@craco/craco": "^6.1.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-icons": "^4.2.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.3",
-    "@vitejs/plugin-react-refresh": "^1.1.0",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
-    "vite": "^2.0.0"
   }
+
 }

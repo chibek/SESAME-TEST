@@ -7,17 +7,18 @@ const Button = (props,className) => {
 			'text-white',
 			'bg-primary',
 			'hover:bg-primary-hover',
-            'dark:bg-dark-primary',
-            'dark:hover:bg-dark-hover',
+			'dark:bg-primary-dark',
+			'dark:hover:bg-primary-darkhover'
 		],
-		[ButtonTypes.SECONDARY]: ['text-white', 'bg-secondary', 'hover:bg-secondary-hover'],
+		[ButtonTypes.SECONDARY]: ['text-white', 'bg-secondary', 'dark:bg-secondary-dark', 'dark:hover:bg-secondary-darkhover', 'hover:bg-secondary-hover'],
+		[ButtonTypes.TERTIARY]: ['text-white', 'bg-tertiary', 'hover:bg-tertiary-hover'],
 	};
     classNames.push(...styles[props.kind]);
 	className && classNames.push(className);
 	className = classNames.join(' ');
 
     return(
-    <button className={className}>{props.children}</button>
+    <button onClick={props.onClick} className={className}>{props.children}</button>
     )
 }
 
