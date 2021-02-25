@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {axiosInstance} from '../../api/axios'
-import App from '../App'
+import SesameBar from '../sesame-bar/sesame-bar'
 
 const EmployeeManagement = () => {
     const [workers, setWorkers] = useState({}); 
@@ -17,7 +17,7 @@ const EmployeeManagement = () => {
        if (isLoading) return <div>Loading...</div>;
        return (
         <div className="w-screen h-screen dark:bg-gray-500 bg-screen">
-            <App employee={workers} ></App>
+            <SesameBar employee={workers} />
         </div>
        )
 }

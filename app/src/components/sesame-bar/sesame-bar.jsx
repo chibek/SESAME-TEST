@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import Button from './generic/button/button'
-import DropDown from './generic/dropdown/dropdown'
-import {axiosInstance} from '../api/axios'
-import {getCurrentLocation} from '../utils/geolocation'
-import Timer from './generic/timer/timer'
-import axios from 'axios'
+import Button from '../generic/button/button'
+import DropDown from '../generic/dropdown/dropdown'
+import {axiosInstance} from '../../api/axios'
+import {getCurrentLocation} from '../../utils/geolocation'
+import Timer from '../generic/timer/timer'
 
-const App = ({employee}) => {
+const SesameBar = ({employee}) => {
   const [worker, setWorker] = useState({}); 
   const [workerRequestIn, setWorkerRequestIn] = useState({
     employeeId : '',
@@ -39,11 +38,21 @@ const App = ({employee}) => {
       data = {...workerRequestOut};
     }
     const location  = getCurrentLocation();
-    data.employeeId = worker.employee.id;
-    axiosInstance.post(`/work-entries/${checkInOut}`, data)
-      .then(response => {
-        setWorker(response.data);
-      });
+    location.then((pos) => {
+      data.employeeId = worker.employee.id;
+      if(worker.employee.workStatus == 'online'){
+        data.workEntryOut.coordinates.latitude = pos.lat;
+        data.workEntryOut.coordinates.longitude = pos.lng;
+      }else{
+        ata.workEntryIn.coordinates.latitude = pos.lat;
+        data.workEntryIn.coordinates.longitude = pos.lng;
+      }
+      axiosInstance.post(`/work-entries/${checkInOut}`, data)
+        .then(response => {
+          setWorker(response.data);
+        });
+    });
+  
   }
 
   return (
@@ -70,4 +79,4 @@ const App = ({employee}) => {
   )
 }
 
-export default App
+export default SesameBar
